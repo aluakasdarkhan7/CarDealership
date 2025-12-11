@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Біз туралы — KHAN AUTO</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+      async function askBot() {
+          const userPrompt = prompt("Введите ваш запрос:");
+          if (userPrompt) {
+              const response = await fetch('/ask', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ prompt: userPrompt })
+              });
+              const data = await response.json();
+              if (data.response) {
+                  alert("Ответ от бота: " + data.response);
+              } else {
+                  alert("Ошибка: " + (data.error || "Неизвестная ошибка"));
+              }
+          }
+      }
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html"><img src="assets/img/logo.svg" class="logo"> KHAN AUTO</a>
+      <nav class="menu">
+        <a href="index.html">Басты бет</a><a href="inventory.html">Автомобильдер</a><a href="about.html">Біз туралы</a><a href="contact.html">Байланыс</a>
+      </nav>
+      <button onclick="askBot()" class="help-button">Помощь</button>
+    </div>
+  </header>
+
+  <main class="container content">
+    <h1>Жоба туралы</h1>
+    <p>Бұл — автосалонның шағын жобасы. Жүйе келесі қажеттіліктерді көрсетеді:</p>
+    <ul>
+      <li>5–8 OOP кластары: Vehicle, Sedan, SUV, Customer, Sale, TestDrive, Inventory</li>
+      <li>Абстракция: Vehicle — abstract (JS/Backend)</li>
+      <li>Инкапсуляция: private өрістер, getters/setters</li>
+      <li>Мұрагерлік: Sedan және SUV — Vehicle-дан мұрагерлік</li>
+      <li>Полиморфизм: getInfo() әр классқа тән</li>
+      <li>Design Pattern: Factory</li>
+    </ul>
+
+    <h2>Архитектура таңдауы</h2>
+    <p>Front-end статикалық, бірақ жобада толық жұмыс істей алатын қосымша Flask API бар (server.py). Бұл тәсіл оқу мақсатында REST API мен фронтендтің қалай байланысатынын көрсетеді.</p>
+
+    <h3>Use case (мысал)</h3>
+    <p>Клиент сайтқа кіреді → Инвентарьдан көлікті таңдайды → Тест-драйвқа жазылады → Админ bookings.json файлынан қарауға болады.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><small>© 2025 KHAN AUTO</small></div>
+  </footer>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

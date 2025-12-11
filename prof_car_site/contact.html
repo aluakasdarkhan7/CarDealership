@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Байланыс — KHAN AUTO</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html"><img src="assets/img/logo.svg" class="logo"> KHAN AUTO</a>
+      <nav class="menu">
+        <a href="index.html">Басты бет</a><a href="inventory.html">Автомобильдер</a><a href="about.html">Біз туралы</a><a href="contact.html">Байланыс</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Бізбен хабарласыңыз</h1>
+    <p>Сұрақтарыңыз немесе ұсыныстарыңыз болса, төмендегі форманы толтырыңыз, біз сізге жауап береміз.</p>
+    <form id="contact-form" class="form card">
+      <label>Атыңыз<input id="contact-name" required></label>
+      <label>Электрондық пошта<input id="contact-email" type="email" required></label>
+      <label>Хабарлама<textarea id="contact-message" rows="6" required></textarea></label>
+      <div class="row"><button class="btn" type="submit">Жіберу</button></div>
+    </form>
+    <div id="contact-result"></div>
+  </main>
+
+  <footer class="site-footer container"><small>© 2025 KHAN AUTO</small></footer>
+
+  <!-- Chat Widget -->
+  <div id="chat-bubble" class="chat-bubble">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+  </div>
+  <div id="chat-widget" class="chat-widget card" style="display: none;">
+    <div class="chat-header">
+      <h4>Чем можем помочь?</h4>
+      <button id="chat-close" class="icon-btn">&times;</button>
+    </div>
+    <div id="chat-body" class="chat-body">
+      <div class="chat-message bot">Здравствуйте! Задайте свой вопрос, и я постараюсь помочь.</div>
+    </div>
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Введите ваш вопрос...">
+      <button id="chat-send" class="btn">»</button>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

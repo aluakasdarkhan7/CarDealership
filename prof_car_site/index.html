@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KHAN AUTO — Ресми дилер</title>
+  <script>
+      async function askBot() {
+          const userPrompt = prompt("Введите ваш запрос:");
+          if (userPrompt) {
+              const response = await fetch('/ask', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ prompt: userPrompt })
+              });
+              const data = await response.json();
+              if (data.response) {
+                  alert("Ответ от бота: " + data.response);
+              } else {
+                  alert("Ошибка: " + (data.error || "Неизвестная ошибка"));
+              }
+          }
+      }
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/img/logo.svg" alt="logo" class="logo"> KHAN AUTO
+      </a>
+      <nav class="menu">
+        <a href="index.html">Басты бет</a>
+        <a href="inventory.html">Автомобильдер</a>
+        <a href="about.html">Біз туралы</a>
+        <a href="contact.html">Байланыс</a>
+        <a class="btn" href="inventory.html">Модельді таңдау</a>
+      </nav>
+      <button onclick="askBot()" class="help-button">Помощь</button>
+    </div>
+  </header>
+  <main>
+    <section class="hero container">
+      <div class="hero-grid">
+        <div>
+          <h1>Сіздің арманыңыздағы автомобильдер осында</h1>
+          <p class="lead">KHAN AUTO — бұл сапа, сенімділік және жоғары деңгейлі қызмет көрсету. Біздің модельдер қатарымен танысып, тест-драйвқа жазылыңыз.</p>
+          <div class="cta">
+            <a class="btn" href="inventory.html">Автомобильдерді көру</a>
+            <a class="link" href="contact.html">Бізбен хабарласу</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/img/car-hero.svg" alt="Car illustration">
+        </div>
+      </div>
+    </section>
+
+    <section class="container features">
+      <article class="card">
+        <h3>Кең таңдау</h3>
+        <p>Біздің салонда әртүрлі қажеттіліктер мен талғамдарға сай келетін седандар мен жол талғамайтын көліктердің кең ауқымы ұсынылған.</p>
+      </article>
+      <article class="card">
+        <h3>Тиімді шарттар</h3>
+        <p>Біз әрбір клиентке ыңғайлы болу үшін бәсекеге қабілетті бағаларды, сауда-саттық бағдарламаларын және несиелеудің икемді шарттарын ұсынамыз.</p>
+      </article>
+      <article class="card">
+        <h3>Тест-драйв</h3>
+        <p>Сатып алмас бұрын таңдалған автомобильдің барлық артықшылықтарын сезіну үшін ыңғайлы уақытта тест-драйвқа жазылыңыз.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© 2025 KHAN AUTO — Барлық құқықтар қорғалған.</small>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
